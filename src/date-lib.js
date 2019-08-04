@@ -1,9 +1,7 @@
 // Challenge 1
 class D {
     constructor(...args) {
-
         this.date = new Date(...args)
-
     }
     
     year() {
@@ -107,16 +105,8 @@ class D {
                 return diff == 1 ? (diff + ' month from now') : (diff + ' months from now')
             } else {
                 let diff = (difference/31557600000).toFixed(2)
-                console.log(diff)
                 return diff == 1 ? (diff + ' year from now') : (diff + ' years from now')
             }
-            
         }
-
     }
 }
-
-// Challenge 2
-
-const d = new D(2021, 0, 0, 0, 0, 0)
-d.when()
