@@ -47,8 +47,8 @@ class D {
         var formatChars = {
             'Y': this.year().toString(),
             'y': this.year().toString().slice(-2),
-            'M': monthNames[this.month()],
-            'm': monthNames[this.month()].substring(0, 3),
+            'M': monthNames[this.month()-1],
+            'm': monthNames[this.month()-1].substring(0, 3),
             'D': this.day().toString().length < 2 ? "0" + this.day().toString() : this.day().toString(),
             'd': this.day().toString(),
             'H': this.hours().toString().length < 2 ? "0" + this.hours().toString() : this.hours().toString(),
@@ -60,7 +60,7 @@ class D {
         }
 
         if(dateString == undefined) {
-            return(this.year() + " " + monthNames[this.month()] + " " + (this.day().toString().length < 2 ? "0" + this.day().toString() : this.day().toString()))
+            return(this.year() + " " + monthNames[this.month()-1] + " " + (this.day().toString().length < 2 ? "0" + this.day().toString() : this.day().toString()))
         } else {
             let outputStr = ""
             for(let char of dateString) {
@@ -110,3 +110,5 @@ class D {
         }
     }
 }
+
+module.exports.D = D
