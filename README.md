@@ -1,5 +1,6 @@
 # Date Library
-
+![Travis (.com)](https://img.shields.io/travis/com/daisukiyo/js-date-library)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/daisukiyo/js-date-library)
 ## Description
 
 A simple date library which utilizes the JS Date Object to perform four useful operations
