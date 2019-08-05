@@ -1,34 +1,80 @@
-// Challenge 1
+/**
+ * a javascript date library
+ * 
+ * this library will fulfill:
+ * 1. instantiating a date object given a date string
+ * 2. convert the date object into readable values
+ * 3. format a date given a mask string
+ * 4. discover when a date occurs/occured
+ * 
+ */
+
+ /** wrapper class for the date (D) object */ 
 class D {
+    /**
+     * @desc instantiates a date object 
+     * 
+     * @param  {...any} args - a valid date string/format
+     */
     constructor(...args) {
         this.date = new Date(...args)
     }
     
+    /**
+     * @class
+     * @@classdesc - returns the year of a date object
+     */
     year() {
         return this.date.getFullYear()
     }
 
+    /**
+     * @class
+     * @@classdesc - returns the month of a date object
+     */
     month() {
        return this.date.getMonth() 
     }
 
+    /**
+     * @class
+     * @@classdesc - returns the date of a date object
+     */
     day() {
         return this.date.getDate()
     }
 
+    /**
+     * @class
+     * @@classdesc - returns the hour of a date object
+     */
     hours() {
         return this.date.getHours()
     }
 
+    /**
+     * @class
+     * @@classdesc - returns the minute of a date object
+     */
     mins() {
         return this.date.getMinutes()
     }
 
+    /**
+     * @class
+     * @@classdesc - returns the second of a date object
+     */
     secs() {
         return this.date.getSeconds(0)
     }
 
+    /**
+     * @param {*} dateString - a "mask" string
+     * @returns {string} - a formatted date
+     * @description format a date given a "mask" string
+     */
     format(dateString) {
+        // an array of months
         const monthNames = [
             "January", 
             "February",
@@ -44,6 +90,7 @@ class D {
             "December",
         ];
 
+        // object of formatted characters
         var formatChars = {
             'Y': this.year().toString(),
             'y': this.year().toString().slice(-2),
@@ -59,11 +106,15 @@ class D {
             's': this.secs().toString(),
         }
 
+        // empty arguments
         if(dateString == undefined) {
             return(this.year() + " " + monthNames[this.month()-1] + " " + (this.day().toString().length < 2 ? "0" + this.day().toString() : this.day().toString()))
         } else {
-            let outputStr = ""
+            let outputStr = "" // generate new ouput
+
+            // replace each formatting character w/ respected value
             for(let char of dateString) {
+                // if character in dateString matches formatting character
                 if(formatChars[char]) {
                     outputStr += formatChars[char]
                 } else {
@@ -74,12 +125,20 @@ class D {
         }
     }
 
+    /**
+     * @returns {string} - when a date will occur/occured
+     * @classdesc calculates when a date will occur/occured
+     */
     when () {
+        // create a date when called to compare given date to
         const executeDate = new Date()
+        // if current date is after the given date
         if(executeDate > this.date){
             
+            // find how many milliseconds apart the dates are
             let difference = executeDate.getTime() - this.date.getTime()
 
+            // select best description based on time apart
             if (difference < 86400000){
                 return('less than a day ago')
             } else if (difference < 2628000000){
@@ -93,8 +152,10 @@ class D {
                 return diff == 1 ? (diff + ' year ago') : (diff + ' years ago')
             }
         } else if(executeDate < this.date){
+            // find how many milliseconds apart the dates are
             let difference = this.date.getTime() - executeDate.getTime()
 
+            // select best description based on time apart
             if (difference < 86400000){
                 return('less than a day from now')
             } else if (difference < 2628000000){
