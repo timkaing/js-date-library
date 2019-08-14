@@ -22,7 +22,7 @@ class D {
     
     /**
      * @class
-     * @@classdesc - returns the year of a date object
+     * @classdesc - returns the year of a date object
      */
     year() {
         return this.date.getFullYear()
@@ -30,7 +30,7 @@ class D {
 
     /**
      * @class
-     * @@classdesc - returns the month of a date object
+     * @classdesc - returns the month of a date object
      */
     month() {
        return this.date.getMonth() 
@@ -38,7 +38,7 @@ class D {
 
     /**
      * @class
-     * @@classdesc - returns the date of a date object
+     * @classdesc - returns the date of a date object
      */
     day() {
         return this.date.getDate()
@@ -46,7 +46,7 @@ class D {
 
     /**
      * @class
-     * @@classdesc - returns the hour of a date object
+     * @classdesc - returns the hour of a date object
      */
     hours() {
         return this.date.getHours()
@@ -54,7 +54,7 @@ class D {
 
     /**
      * @class
-     * @@classdesc - returns the minute of a date object
+     * @classdesc - returns the minute of a date object
      */
     mins() {
         return this.date.getMinutes()
@@ -62,7 +62,7 @@ class D {
 
     /**
      * @class
-     * @@classdesc - returns the second of a date object
+     * @classdesc - returns the second of a date object
      */
     secs() {
         return this.date.getSeconds(0)
@@ -129,10 +129,16 @@ class D {
      * @returns {string} - when a date will occur/occured
      * @classdesc calculates when a date will occur/occured
      */
-    when () {
+    when(executeDate = new D()) {
+
+        // console.log('**********************')
+        // console.log(executeDate)
+        // console.log('**********************')
         // create a date when called to compare given date to
-        const executeDate = new Date()
+        // const executeDate = new Date()
         // if current date is after the given date
+        executeDate = executeDate.date
+        
         if(executeDate > this.date){
             
             // find how many milliseconds apart the dates are

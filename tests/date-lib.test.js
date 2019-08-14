@@ -33,5 +33,7 @@ test('Convert Mask String', () => {
 
 test('Find When A Date Occurs/Occured', () => {
     const pastYear = new D(1996, 6, 9, 4, 2, 0);
-    expect(pastYear.when()).toEqual(23.07)
+    const anotherDate = new D(1997, 6, 9, 4, 2, 0);
+    const when = pastYear.when(anotherDate);
+    expect(when).toEqual('12.00 months ago');
 })
