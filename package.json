@@ -1,19 +1,27 @@
 {
-  "name": "date-lib",
+  "name": "tk-date-library",
   "version": "1.0.0",
   "description": "a simple date library",
-  "main": "src/string-library.js",
+  "main": "umd/index.js",
+  "module": "esm/index.js",
+  "files": [
+    "esm/*",
+    "emd/*"
+  ],
   "directories": {
     "test": "test"
   },
   "scripts": {
     "test": "jest",
-    "lint": "eslint"
+    "lint": "eslint",
+    "prepare": "rollup --config"
   },
   "author": "Tim <kaing.timothy@gmail.com> (https://github.com/daisukiyo)",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^6.1.0",
-    "jest": "^24.8.0"
+    "jest": "^24.8.0",
+    "rollup": "^1.19.4",
+    "rollup-plugin-terser": "^5.1.1"
   }
 }

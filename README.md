@@ -16,11 +16,11 @@ This library can also be found on NPM
 
 Run the Following command in your project's directory:
 ```
-npm install 'TBD' --save
+npm i tk-date-library --save
 ```
 Once installed, require it on the top of your applications main point of entry (index.js):
 ```
-require('TBD)
+require('tk-date-library')
 ```
 
 # Functions

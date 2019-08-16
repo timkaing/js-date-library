@@ -5,11 +5,8 @@ test('Sanity Check', () => {
 })
 
 test('Date Instantiation w/ String', () => {
-    // const obj1 = new D('9/26/1965');
-    // expect(obj1).toEqual('');
-
-    // const obj2 = new D(1970, 1, 1, 0, 0, 0);
-    // expect(obj2).toBe('');
+    const obj1 = new D('9/26/1965');
+    expect(obj1.date.toString()).toEqual('Sun Sep 26 1965 00:00:00 GMT-0700 (Pacific Daylight Time)');
 })
 
 test('Provide Readable Values for Date', () => {
